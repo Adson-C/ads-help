@@ -41,11 +41,8 @@ public class TecnicoResource {
 	// buscar uma lista
 	@GetMapping
 	public ResponseEntity<List<TecnicoDTO>> findAll() {
-		
 		List<Tecnico> list = service.findAll();
-		
-		List<TecnicoDTO> listDTO = list.stream().map(Obj -> new TecnicoDTO(Obj)).collect(Collectors.toList());
-		
+		List<TecnicoDTO> listDTO = list.stream().map(obj -> new TecnicoDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listDTO);
 	}
 	
